@@ -1,33 +1,5 @@
 define({ "api": [
   {
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "optional": false,
-            "field": "varname1",
-            "description": "<p>No type.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "varname2",
-            "description": "<p>With type.</p>"
-          }
-        ]
-      }
-    },
-    "type": "",
-    "url": "",
-    "version": "0.0.0",
-    "filename": "app/public/apidoc/main.js",
-    "group": "/home/pukhraj/Desktop/projects/tawqi3i/server/app/public/apidoc/main.js",
-    "groupTitle": "/home/pukhraj/Desktop/projects/tawqi3i/server/app/public/apidoc/main.js",
-    "name": ""
-  },
-  {
     "type": "post",
     "url": "/admin/login",
     "title": "Admin Login",
@@ -3487,7 +3459,7 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/user/help-request",
+    "url": "/user/help_request",
     "title": "Help Request",
     "header": {
       "fields": {
@@ -3570,6 +3542,79 @@ define({ "api": [
       ]
     },
     "filename": "app/Controllers/Http/HelpController.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/user/image_url_to_base64",
+    "title": "Image url to base 64",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............lREODosHjzx95uM-jA.</p>"
+          }
+        ]
+      }
+    },
+    "version": "2.0.0",
+    "name": "Image_url_2_base64",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "imageUrl",
+            "description": "<p>image s3 url (only s3 url).</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example: ",
+          "content": "{\n       \"imageUrl\": \"https://tawqi3i.s3.......natures/*7fe38a2e45a81628854682110.png\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " HTTP/1.1 200 OK\n{\n    \"data\": {\n      \"base64\": \"77+9UE5HDQoaCgAAAA1JSERSAAAD77+9AA................................\"\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/DocController.js",
     "groupTitle": "User"
   },
   {
